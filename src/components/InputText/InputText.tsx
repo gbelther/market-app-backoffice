@@ -46,7 +46,7 @@ const InputText = ({
           {label}
         </label>
       )}
-      <input {...inputProps} type="text" className={inputClassName} />
+      <input {...inputProps} className={inputClassName} />
       {showFeedback && (
         <label className={feedbackClassName}>{feedback?.message}</label>
       )}
