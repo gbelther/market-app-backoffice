@@ -1,9 +1,9 @@
+import { Routes } from "./routes";
+
+import "./styles/global.scss";
+
 const App = () => {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+  return <Routes />;
 };
 
 export default App;
