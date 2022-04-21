@@ -1,8 +1,37 @@
+import { Button } from "../../components/Button";
+import { InputText } from "../../components/InputText";
+
+import "./styles.scss";
+
 const Login = () => {
   return (
-    <div>
-      <h1>Login Page</h1>
-    </div>
+    <section id="pg-login" className="f-centered">
+      <div className="pg-login__form">
+        <p className="pg-login__form--title">Faça seu login</p>
+        <div className="d-flex f-col gap-4">
+          <InputText label="E-mail" />
+          <InputText label="Senha" />
+        </div>
+        <div className="pg-login__form__buttons-wrapper">
+          <div className="flex-1">
+            <Button
+              bgColor="main-extra-dark"
+              color="light-01"
+              buttonProps={{
+                className: "w-100",
+              }}
+            >
+              Login
+            </Button>
+          </div>
+          <div>
+            <Button bgColor="light-02" buttonProps={{}}>
+              Cadastre-se
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

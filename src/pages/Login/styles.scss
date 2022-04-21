@@ -1,0 +1,29 @@
+@import "/src/styles/theme/theme.scss";
+
+#pg-login {
+  background-color: $main;
+  @extend .flex-1;
+
+  .pg-login {
+    &__form {
+      @extend .f-centered-col;
+      @extend .p-4;
+      @extend .gap-6;
+      margin-bottom: 15%;
+      border: 1px solid $main-dark;
+      border-radius: 8px;
+
+      &--title {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      &__buttons-wrapper {
+        @extend .w-100;
+        @extend .d-flex;
+        @extend .gap-2;
+        justify-content: space-between;
+      }
+    }
+  }
+}
