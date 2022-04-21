@@ -26,6 +26,12 @@ button {
   font-weight: 400;
 }
 
+input {
+  border-color: $light-03;
+  border-width: 1px;
+  border-style: solid;
+}
+
 body {
   background: $light-02;
 }
