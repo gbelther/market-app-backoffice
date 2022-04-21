@@ -1,3 +1,5 @@
+import { SbWrapper } from "../src/utils/storybook/SbWrapper";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,4 +8,12 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};
+
+export const decorators = [
+  (Story) => (
+    <SbWrapper>
+      <Story />
+    </SbWrapper>
+  ),
+];
