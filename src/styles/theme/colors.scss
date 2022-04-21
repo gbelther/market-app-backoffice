@@ -19,3 +19,23 @@ $error-dark: #8a0e0e;
 $success: #1a9525;
 $success-light: #57d862;
 $success-dark: #106f19;
+
+$colors-list: (
+  "main": $main,
+  "main-dark": $main-dark,
+  "main-extra-dark": $main-extra-dark,
+  "dark-01": $dark-01,
+  "dark-02": $dark-02,
+  "dark-03": $dark-03,
+  "dark-04": $dark-04,
+  "light-01": $light-01,
+  "light-02": $light-02,
+  "light-03": $light-03,
+  "light-04": $light-04,
+  "error": $error,
+  "error-light": $error-light,
+  "error-dark": $error-dark,
+  "success": $success,
+  "success-light": $success-light,
+  "success-dark": $success-dark,
+);

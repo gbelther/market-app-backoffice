@@ -37,9 +37,11 @@ body {
 }
 
 button {
+  border-style: solid;
+
   cursor: pointer;
   transition: 0.3s;
-  :hover {
+  &:hover {
     filter: brightness(0.8);
   }
 }

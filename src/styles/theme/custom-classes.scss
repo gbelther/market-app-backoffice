@@ -37,27 +37,18 @@
 @include attr-x("gap", "gap", 8, 0.25, "rem");
 @include attr-x("padding", "p", 8, 0.25, "rem");
 @include attr-x("margin", "m", 8, 0.25, "rem");
+@include attr-x("width", "w", 100, 1, "%");
 
-.color-main {
-  color: $main;
-}
+@each $key, $val in $colors-list {
+  .color-#{$key} {
+    color: $val;
+  }
 
-.color-error {
-  color: $error;
-}
+  .border-color-#{$key} {
+    border-color: $val;
+  }
 
-.color-success {
-  color: $success;
-}
-
-.border-color-main {
-  border-color: $main;
-}
-
-.border-color-error {
-  border-color: $error;
-}
-
-.border-color-success {
-  border-color: $success;
+  .bg-#{$key} {
+    background-color: $val;
+  }
 }

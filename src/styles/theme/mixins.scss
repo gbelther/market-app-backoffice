@@ -1,5 +1,5 @@
 @mixin attr-x($attr, $attr-cod, $attr-count: 5, $attr-steps: 1, $unit: "%") {
-  @for $i from 1 through $attr-count {
+  @for $i from 0 through $attr-count {
     $attr-value: $attr-steps * $i;
 
     .#{$attr-cod}-#{$i} {
