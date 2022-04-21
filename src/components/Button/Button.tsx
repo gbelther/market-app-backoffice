@@ -18,7 +18,7 @@ const Button = ({
   bgColor = "main",
   color = "dark-01",
   borderColor,
-  size = "large",
+  size = "normal",
   children,
   buttonProps,
 }: IButtonProps) => {
