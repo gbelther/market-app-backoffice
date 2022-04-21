@@ -9,8 +9,18 @@ const Login = () => {
       <div className="pg-login__form">
         <p className="pg-login__form--title">Faça seu login</p>
         <div className="d-flex f-col gap-4">
-          <InputText label="E-mail" />
-          <InputText label="Senha" />
+          <InputText
+            label="E-mail"
+            inputProps={{
+              type: "email",
+            }}
+          />
+          <InputText
+            label="Senha"
+            inputProps={{
+              type: "password",
+            }}
+          />
         </div>
         <div className="pg-login__form__buttons-wrapper">
           <div className="flex-1">
@@ -25,9 +35,7 @@ const Login = () => {
             </Button>
           </div>
           <div>
-            <Button bgColor="light-02" buttonProps={{}}>
-              Cadastre-se
-            </Button>
+            <Button bgColor="light-02">Cadastre-se</Button>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@
     &__form {
       @extend .f-centered-col;
       @extend .p-4;
+      @extend .m-4;
       @extend .gap-6;
       margin-bottom: 15%;
       border: 1px solid $main-dark;
