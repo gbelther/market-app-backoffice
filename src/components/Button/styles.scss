@@ -1,0 +1,20 @@
+@import "/src/styles/theme/theme.scss";
+
+.c-button {
+  width: "100%";
+  height: fit-content;
+  padding: 2px 4px;
+  border-radius: 4px;
+
+  &-size-small {
+    font-size: 0.75rem;
+  }
+
+  &-size-normal {
+    font-size: 1rem;
+  }
+
+  &-size-large {
+    font-size: 1.5rem;
+  }
+}
