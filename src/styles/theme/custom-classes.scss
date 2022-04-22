@@ -52,3 +52,12 @@
     background-color: $val;
   }
 }
+
+@each $key, $val in $message-error-sizes {
+  .message-error-#{$key} {
+    @extend .color-error;
+    font-weight: 700;
+    font-size: #{$val}rem;
+    height: #{$val}rem;
+  }
+}
