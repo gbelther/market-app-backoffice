@@ -30,13 +30,9 @@ const InputText = ({
   }, [feedback?.type]);
 
   const feedbackClassName = useMemo(() => {
-    const classNameBase = "c-input-text--feedback-text";
-
     if (feedback?.type) {
-      return `${classNameBase} color-${feedback.type}`;
+      return `message-${feedback.type}-sm`;
     }
-
-    return classNameBase;
   }, [feedback?.type]);
 
   return (
