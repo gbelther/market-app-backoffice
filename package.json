@@ -71,7 +71,10 @@
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
       "!src/**/*.stories.{ts,tsx}",
-      "!<rootDir>/node_modules/"
+      "!<rootDir>/node_modules/",
+      "!src/App.tsx",
+      "!src/index.tsx",
+      "!src/routes/*.{ts,tsx}"
     ],
     "coverageReporters": [
       "text"
