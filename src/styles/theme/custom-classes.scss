@@ -60,4 +60,11 @@
     font-size: #{$val}rem;
     height: #{$val}rem;
   }
+
+  .message-success-#{$key} {
+    @extend .color-success;
+    font-weight: 700;
+    font-size: #{$val}rem;
+    height: #{$val}rem;
+  }
 }
