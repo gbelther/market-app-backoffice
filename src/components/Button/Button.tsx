@@ -1,4 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode, useMemo } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+
 import { IColors } from "../../interfaces/IColors";
 
 import "./styles.scss";
@@ -10,6 +12,8 @@ interface IButtonProps {
   color?: IColors;
   borderColor?: IColors;
   size?: ButtonSize;
+  spinnerSize?: string | number;
+  loading?: boolean;
   children: ReactNode;
   buttonProps?: ButtonHTMLAttributes<HTMLButtonElement>;
 }
@@ -19,6 +23,8 @@ const Button = ({
   color = "dark-01",
   borderColor,
   size = "normal",
+  spinnerSize = "1.25rem",
+  loading = false,
   children,
   buttonProps,
 }: IButtonProps) => {
@@ -32,7 +38,11 @@ const Button = ({
 
   return (
     <button {...buttonProps} className={buttonClassName}>
-      {children}
+      {loading ? (
+        <ClipLoader color="#fff" loading={true} size={spinnerSize} />
+      ) : (
+        children
+      )}
     </button>
   );
 };
