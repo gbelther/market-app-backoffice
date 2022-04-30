@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -48,6 +49,12 @@ const Login = () => {
     navigate("/subscribe");
   };
 
+  const handleRedirectToHome = () => {
+    navigate("/", {
+      replace: true,
+    });
+  };
+
   const feedbackEmail = useMemo(() => {
     if (errors.email) {
       return {
@@ -65,6 +72,12 @@ const Login = () => {
       } as IInputFeedback;
     }
   }, [errors.password]);
+
+  useEffect(() => {
+    if (user.user) {
+      handleRedirectToHome();
+    }
+  }, [user]);
 
   return (
     <section id="pg-login" className="f-centered">

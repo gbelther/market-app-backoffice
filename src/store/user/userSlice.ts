@@ -24,7 +24,11 @@ const initialState: IUserState = {
 const userSlice = createSlice({
   name: "user",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.user = null;
+    },
+  },
   extraReducers: ({ addCase }) => {
     addCase(createSession.pending, (state) => {
       state.loading = true;
@@ -53,4 +57,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { logout } = userSlice.actions;
 export default userSlice.reducer;

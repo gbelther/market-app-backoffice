@@ -4,14 +4,23 @@ import {
   Route,
 } from "react-router-dom";
 
-import { Login, Subscribe } from "../pages";
+import { Home, Login, Subscribe } from "../pages";
+import { Protected } from "../components/Protected";
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <RoutesContainer>
-        <Route path="login" element={<Login />} />
-        <Route path="subscribe" element={<Subscribe />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/subscribe" element={<Subscribe />} />
+        <Route
+          path="/"
+          element={
+            <Protected>
+              <Home />
+            </Protected>
+          }
+        />
       </RoutesContainer>
     </BrowserRouter>
   );
