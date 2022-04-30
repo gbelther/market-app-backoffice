@@ -4,13 +4,14 @@ import {
   Route,
 } from "react-router-dom";
 
-import { Login } from "../pages";
+import { Login, Subscribe } from "../pages";
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <RoutesContainer>
         <Route path="login" element={<Login />} />
+        <Route path="subscribe" element={<Subscribe />} />
       </RoutesContainer>
     </BrowserRouter>
   );

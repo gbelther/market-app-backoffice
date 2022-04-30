@@ -1,52 +1,80 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { createSession } from "../../store/user/thunks/createSession";
 import { IInputFeedback } from "../../interfaces/IInputFeedback";
 import { Button } from "../../components/Button";
 import { InputText } from "../../components/InputText";
+import { UsersService } from "../../services/usersService";
+import { ErrorHandling } from "../../errors/errorHandling/ErrorHandling";
+import { IError } from "../../errors/IError";
 
 import "./styles.scss";
-import { useNavigate } from "react-router-dom";
 
-interface IFormLogin {
+interface IFormSubscribe {
+  name: string;
   email: string;
   password: string;
+  passwordConfirm: string;
 }
 
 const loginFormSchema = yup.object({
+  name: yup.string().required("Campo obrigatório"),
   email: yup.string().email("E-mail inválido").required("Campo obrigatório"),
   password: yup.string().required("Campo obrigatório"),
+  passwordConfirm: yup
+    .string()
+    .required("Campo obrigatório")
+    .oneOf([yup.ref("password"), null], "As senhas devem ser iguais"),
 });
 
-const Login = () => {
-  const dispatch = useAppDispatch();
+const Subscribe = () => {
   const navigate = useNavigate();
-  const user = useAppSelector((state) => state.user);
+
+  const [loadingCreateUser, setLoadingCreateUser] = useState(false);
+  const [errorCreateUser, setErrorCreateUser] = useState<IError | null>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormLogin>({
+  } = useForm<IFormSubscribe>({
     resolver: yupResolver(loginFormSchema),
   });
 
-  const onSubmit = async ({ email, password }: IFormLogin) => {
-    dispatch(
-      createSession({
+  const onSubmit = async ({ name, email, password }: IFormSubscribe) => {
+    setLoadingCreateUser(true);
+
+    try {
+      await UsersService.createUser({
+        name,
         email,
         password,
-      })
-    );
+      });
+
+      handleBackToLoginPage();
+    } catch (error) {
+      const errorHandling = new ErrorHandling(error);
+      setErrorCreateUser(errorHandling.error);
+    } finally {
+      setLoadingCreateUser(false);
+    }
   };
 
-  const handleRedirectToSubscribePage = () => {
-    navigate("/subscribe");
+  const handleBackToLoginPage = () => {
+    navigate("/login");
   };
+
+  const feedbackName = useMemo(() => {
+    if (errors.name) {
+      return {
+        type: "error",
+        message: errors.name.message ?? "",
+      } as IInputFeedback;
+    }
+  }, [errors.name]);
 
   const feedbackEmail = useMemo(() => {
     if (errors.email) {
@@ -66,6 +94,15 @@ const Login = () => {
     }
   }, [errors.password]);
 
+  const feedbackPasswordConfirm = useMemo(() => {
+    if (errors.passwordConfirm) {
+      return {
+        type: "error",
+        message: errors.passwordConfirm.message ?? "",
+      } as IInputFeedback;
+    }
+  }, [errors.passwordConfirm]);
+
   return (
     <section id="pg-login" className="f-centered">
       <form
@@ -76,6 +113,14 @@ const Login = () => {
         <p className="pg-login__form--title">Faça seu login</p>
 
         <div className="d-flex f-col gap-4">
+          <InputText
+            label="Nome"
+            inputProps={{
+              type: "text",
+              ...register("name"),
+            }}
+            feedback={feedbackName}
+          />
           <InputText
             label="E-mail"
             inputProps={{
@@ -92,21 +137,29 @@ const Login = () => {
             }}
             feedback={feedbackPassword}
           />
+          <InputText
+            label="Confirmar senha"
+            inputProps={{
+              type: "password",
+              ...register("passwordConfirm"),
+            }}
+            feedback={feedbackPasswordConfirm}
+          />
         </div>
         <div>
-          <p className="message-error-sm">{user.error?.message}</p>
+          <p className="message-error-sm">{errorCreateUser?.message}</p>
         </div>
         <div className="pg-login__form__buttons-wrapper">
           <div className="flex-1">
             <Button
               bgColor="main-extra-dark"
               color="light-01"
-              loading={user.loading}
+              loading={loadingCreateUser}
               buttonProps={{
                 className: "w-100",
               }}
             >
-              Login
+              Cadastrar
             </Button>
           </div>
           <div>
@@ -114,10 +167,10 @@ const Login = () => {
               bgColor="light-02"
               buttonProps={{
                 type: "submit",
-                onClick: handleRedirectToSubscribePage,
+                onClick: handleBackToLoginPage,
               }}
             >
-              Cadastre-se
+              Voltar
             </Button>
           </div>
         </div>
@@ -126,4 +179,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Subscribe;
