@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { createSession } from "./thunks/createSession";
 import { IError } from "../../errors/IError";
+import { TokenService } from "../../services/tokenService";
+import { UsersService } from "../../services/usersService";
 
 interface IUser {
   id: string;
@@ -15,9 +17,11 @@ interface IUserState {
   error: IError | null;
 }
 
+const user = UsersService.getUserFromStorage();
+
 const initialState: IUserState = {
   loading: false,
-  user: null,
+  user: user ?? null,
   error: null,
 };
 
@@ -27,6 +31,7 @@ const userSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.user = null;
+      TokenService.logout();
     },
   },
   extraReducers: ({ addCase }) => {
@@ -40,6 +45,8 @@ const userSlice = createSlice({
         name: payload.user.name,
         email: payload.user.email,
       };
+
+      UsersService.setUserToStorage(userData);
 
       state.loading = false;
       state.error = null;
