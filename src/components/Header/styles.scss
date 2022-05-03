@@ -1,0 +1,11 @@
+@import "/src/styles/theme/theme.scss";
+
+#c-header {
+  width: 100vw;
+  padding: 0.5rem 1rem;
+  background-color: $main-dark;
+  border-bottom: 1px solid $main-extra-dark;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

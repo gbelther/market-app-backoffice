@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
+import { Header } from "../Header";
 
 interface IProtectedProps {
   children: JSX.Element;
@@ -13,7 +14,12 @@ const Protected = ({ children }: IProtectedProps) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  return children;
+  return (
+    <div>
+      <Header />
+      {children}
+    </div>
+  );
 };
 
 export { Protected };
