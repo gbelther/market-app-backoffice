@@ -1,0 +1,9 @@
+#c-protected {
+  .c-protected {
+    &__content {
+      height: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
+  }
+}

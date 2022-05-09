@@ -1,0 +1,27 @@
+@import "/src/styles/theme/theme.scss";
+
+#c-menu {
+  background-color: $main-dark;
+  padding: 0 0.25rem;
+
+  .c-menu {
+    &__list {
+      &__item {
+        &--button {
+          @extend .f-centered;
+          justify-content: flex-start;
+          gap: 0.25rem;
+          background-color: $light-02;
+          border-color: $light-02;
+          border-radius: 4px;
+          width: 100%;
+
+          span {
+            font-size: 1.25rem;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

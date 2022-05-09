@@ -2,10 +2,45 @@
 
 #c-header {
   width: 100vw;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.25rem;
   background-color: $main-dark;
   border-bottom: 1px solid $main-extra-dark;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .c-header {
+    &__menu-wrapper {
+      cursor: pointer;
+    }
+
+    &--text-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-left: 0.25rem;
+    }
+
+    &__login {
+      &--main-text,
+      &--secondary-text {
+        color: red;
+      }
+
+      &--main-text {
+        color: $light-02;
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+
+      &--secondary-text {
+        color: $main-extra-dark;
+        font-size: 0.75rem;
+        cursor: pointer;
+
+        &:hover {
+          filter: brightness(0.7);
+        }
+      }
+    }
+  }
 }
