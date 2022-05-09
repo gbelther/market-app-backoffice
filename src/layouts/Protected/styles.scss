@@ -1,9 +1,12 @@
 #c-protected {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
   .c-protected {
     &__content {
-      height: 100%;
       display: grid;
       grid-template-columns: auto 1fr;
+      grid-template-rows: 100%;
     }
   }
 }

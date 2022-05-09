@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import { Home, Login, Subscribe } from "../pages";
-import { Protected } from "../components/Protected";
+import { Protected } from "../layouts/Protected";
 
 const Routes = () => {
   return (

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
 import { useAppSelector } from "../../store/hooks";
-import { Header } from "../Header";
-import { Menu } from "../Menu";
+import { Header } from "../../components/Header";
+import { Menu } from "../../components/Menu";
 
 import "./styles.scss";
 
