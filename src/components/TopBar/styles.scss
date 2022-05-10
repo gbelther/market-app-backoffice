@@ -1,0 +1,9 @@
+@import "/src/styles/theme/theme.scss";
+
+#c-top-bar {
+  padding: 0.5rem;
+  border-bottom: 1px solid $main;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
