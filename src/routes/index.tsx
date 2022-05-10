@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import { Home, Login, Subscribe } from "../pages";
+import { Categories, Home, Login, Subscribe } from "../pages";
 import { Protected } from "../layouts/Protected";
 
 const Routes = () => {
@@ -18,6 +18,14 @@ const Routes = () => {
           element={
             <Protected>
               <Home />
+            </Protected>
+          }
+        />
+        <Route
+          path="/categories"
+          element={
+            <Protected>
+              <Categories />
             </Protected>
           }
         />

@@ -1,7 +1,7 @@
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="f-centered">
+      <h1>Bem vindo ao BO do Market APP</h1>
     </div>
   );
 };
