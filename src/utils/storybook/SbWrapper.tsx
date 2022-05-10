@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from "react";
+import { ReactNode } from "react";
 
 import "../../styles/global.scss";
 
@@ -7,7 +7,7 @@ interface IStorybookProps {
 }
 
 const SbWrapper = ({ children }: IStorybookProps) => {
-  return <Fragment>{children}</Fragment>;
+  return <div id="sb-wrapper">{children}</div>;
 };
 
 export { SbWrapper };
