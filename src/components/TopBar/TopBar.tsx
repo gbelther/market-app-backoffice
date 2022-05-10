@@ -10,12 +10,13 @@ interface ITopBarProps {
 
 const TopBar = ({ onClickAddButton }: ITopBarProps) => {
   return (
-    <header id="c-top-bar">
+    <header id="c-top-bar" aria-label="Top bar component">
       {onClickAddButton && (
         <Button
           bgColor="main-extra-dark"
           buttonProps={{
             id: "top-bar-add-button",
+            "aria-label": "Add button",
             onClick: onClickAddButton,
           }}
         >
