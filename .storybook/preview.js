@@ -1,6 +1,7 @@
 import { SbWrapper } from "../src/utils/storybook/SbWrapper";
 
 export const parameters = {
+  layout: "fullscreen",
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
