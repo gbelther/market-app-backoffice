@@ -3,6 +3,7 @@
 .c-input-text {
   @extend .d-flex;
   @extend .f-col;
+  flex: 1;
 
   &--label-text {
     font-size: 0.75rem;

@@ -4,7 +4,7 @@ import { IInputFeedback } from "../../interfaces/IInputFeedback";
 
 import "./styles.scss";
 
-interface IInputTextProps {
+export interface IInputTextProps {
   label?: string;
   showLabel?: boolean;
   feedback?: IInputFeedback;
