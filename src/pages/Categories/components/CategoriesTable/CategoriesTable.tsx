@@ -1,3 +1,4 @@
+import { Button } from "../../../../components/Button";
 import "./styles.scss";
 
 interface ICategory {
@@ -18,6 +19,7 @@ const CategoriesTable = ({ categories }: ICategoriesTableProps) => {
           <th>#</th>
           <th>Nome</th>
           <th>Descrição</th>
+          <td>Opções</td>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +28,24 @@ const CategoriesTable = ({ categories }: ICategoriesTableProps) => {
             <td>{category.id}</td>
             <td>{category.name}</td>
             <td>{category.description}</td>
+            <td className="f-centered f-col gap-1">
+              <Button
+                buttonProps={{
+                  className: "w-100",
+                }}
+              >
+                Editar
+              </Button>
+              <Button
+                buttonProps={{
+                  className: "w-100 bg-error",
+                }}
+                color="light-02"
+                bgColor="error"
+              >
+                Excluir
+              </Button>
+            </td>
           </tr>
         ))}
       </tbody>
