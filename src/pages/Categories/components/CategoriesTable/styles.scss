@@ -1,0 +1,32 @@
+@import "/src/styles/theme/theme.scss";
+
+.c-c-categories-table {
+  border-collapse: collapse;
+  border: 1px solid $main;
+
+  thead {
+    tr {
+      background-color: $main;
+      text-align: left;
+    }
+  }
+
+  th,
+  td {
+    padding: 0.75rem 1rem;
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $light-01;
+
+      &:nth-of-type(even) {
+        background-color: $light-01;
+      }
+
+      &:last-of-type {
+        border-bottom: 1px solid $main;
+      }
+    }
+  }
+}
