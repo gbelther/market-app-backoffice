@@ -6,6 +6,11 @@
 
   .c-menu {
     &__list {
+      padding: 0.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
       &__item {
         &--button {
           @extend .f-centered;

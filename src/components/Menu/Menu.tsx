@@ -24,7 +24,7 @@ const menuItems = [
 const Menu = ({ showMenuNames }: IMenuProps) => {
   return (
     <nav id="c-menu">
-      <ul className="d-flex f-col gap-1">
+      <ul className="c-menu__list">
         {menuItems.map((item) => (
           <li key={item.href}>
             <Link to={item.href}>
